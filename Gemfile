@@ -48,7 +48,12 @@ group :development do
 end
 
 gem "attr_encrypted", "~> 3.0.0"
-gem "aes"
+# fix OpenSSL::Cipher::Cipher warning
+# gem "aes"
+gem 'aes', git: 'https://github.com/jalerson/aes'
 
 gem 'sidekiq'
 gem 'sidekiq-unique-jobs'
+
+# update sprockets
+gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'

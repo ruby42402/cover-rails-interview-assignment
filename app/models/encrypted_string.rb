@@ -22,11 +22,6 @@ class EncryptedString < ActiveRecord::Base
 
   private
 
-  def encryption_key
-    self.data_encrypting_key ||= DataEncryptingKey.primary
-    data_encrypting_key.key
-  end
-
   def set_token
     begin
       self.token = SecureRandom.hex

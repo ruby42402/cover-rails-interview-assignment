@@ -4,8 +4,8 @@ Sidekiq.configure_server do |config|
   end
 end
 
-# disable sidekiq-unique-jobs for testing
 =begin
+# disable sidekiq-unique-jobs for testing
 SidekiqUniqueJobs.configure do |config|
   config.enabled = !Rails.env.test?
 end
