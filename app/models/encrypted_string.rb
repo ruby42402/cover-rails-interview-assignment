@@ -23,9 +23,11 @@ class EncryptedString < ActiveRecord::Base
   private
 
   def set_token
-    begin
-      self.token = SecureRandom.hex
-    end while EncryptedString.where(token: self.token).present?
+    if !self.token
+      begin
+        self.token = SecureRandom.hex
+      end while EncryptedString.where(token: self.token).present?
+    end
   end
 
   def set_data_encrypting_key

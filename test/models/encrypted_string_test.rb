@@ -12,6 +12,10 @@ class EncryptedStringTest < ActiveSupport::TestCase
     @encrypted_string.destroy!
   end
 
+  test 'check value' do
+    assert_equal(@encrypted_string.value, 'test_case')
+  end
+
   test 'check key' do
     assert_equal(@encrypted_string.data_encrypting_key, DataEncryptingKey.primary)
   end

@@ -9,6 +9,10 @@ class DataEncryptingKey < ActiveRecord::Base
     find_by(is_primary: true)
   end
 
+  def self.non_primary
+    where(is_primary: false)
+  end
+
   def self.generate!(attrs={})
     create!(attrs.merge(key: AES.key))
   end

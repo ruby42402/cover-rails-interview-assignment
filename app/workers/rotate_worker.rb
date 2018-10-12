@@ -11,6 +11,7 @@ class RotateWorker
         e.set_new_data_encrypting_key(new_primary_key)
       end
       old_primary_key.destroy!
+      DataEncryptingKey.non_primary.destroy_all
     end
   end
 end
